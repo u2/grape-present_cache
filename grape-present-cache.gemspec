@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'grape/present/cache/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'grape-present-cache'
+  spec.name          = 'grape-present_cache'
   spec.version       = Grape::Present::Cache::VERSION
   spec.authors       = ['u2']
   spec.email         = ['zhangyaning1985@gmail.com']
   spec.summary       = 'Cache present model for Grape.'
   spec.description   = 'Cache present model for Grape.'
-  spec.homepage      = 'https://github.com/u2/grape-present-cache'
+  spec.homepage      = 'https://github.com/u2/grape-present_cache'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")

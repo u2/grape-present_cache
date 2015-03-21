@@ -8,7 +8,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'grape-present-cache'
+    gem 'grape-present_cache'
 
 And then execute:
 
@@ -24,7 +24,7 @@ Or install it yourself as:
 module MyApi < Grape::API
   format :json
 
-  include Grape::Present::Cache
+  include Grape::PresentCache
 
   resources :posts do
     desc "Return a post"
