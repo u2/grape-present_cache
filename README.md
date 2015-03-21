@@ -1,14 +1,14 @@
-# Grape fragment cache in Rails.
+# Grape fragment cache.
 
 ## Features
 
-- Grape fragment cache in Rails.
+- Grape fragment cache.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'grape-present-cache'
+    gem 'grape-present_cache'
 
 And then execute:
 
@@ -24,7 +24,7 @@ Or install it yourself as:
 module MyApi < Grape::API
   format :json
 
-  include Grape::Present::Cache
+  include Grape::PresentCache
 
   resources :posts do
     desc "Return a post"
@@ -42,11 +42,8 @@ end
 ## TODO
 
 - Use Grape::Endpoint as cache_key prefix
-- Cache Config
 - Support other methods.(eg: expire, delete_matched, update...)
 - Rspec
-- rubocop
-- ci
 
 ## Contributing
 

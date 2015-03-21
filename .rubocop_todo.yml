@@ -12,12 +12,12 @@ Lint/AssignmentInCondition:
 
 # Offense count: 1
 Metrics/AbcSize:
-  Max: 16
+  Max: 20
 
 # Offense count: 1
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
-  Max: 85
+  Max: 120
 
 # Offense count: 1
 # Configuration parameters: CountComments.
@@ -53,4 +53,8 @@ Style/TrailingWhitespace:
 # Offense count: 4
 # Configuration parameters: MaxSlashes.
 Style/RegexpLiteral:
+  Enabled: false
+
+# Offense count: 1
+Style/ModuleFunction:
   Enabled: false
