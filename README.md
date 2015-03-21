@@ -1,10 +1,8 @@
-# Cache present model for Grape and Rails.
-
-developing
+# Grape fragment cache in Rails.
 
 ## Features
 
-- Cache present model.
+- Grape fragment cache in Rails.
 
 ## Installation
 
@@ -35,7 +33,7 @@ module MyApi < Grape::API
       present_cache(key: "api:posts:#{post.id}", expires_in: 2.hours) do
         present :post, post, with: API::Entities::Post
       end
-      expose :replies, using: API::Status, as: :replies
+      present :meta, Meta.new, with: API::Entities::Meta
     end
   end
 end
@@ -43,13 +41,11 @@ end
 
 ## TODO
 
+- Use Grape::Endpoint as cache_key prefix
 - Cache Config
-- Support present with Presenter
 - Support other methods.(eg: expire, delete_matched, update...)
 - Rspec
 - rubocop
-- Use Grape::Endpoint as cache_key prefix
-- Rack 
 - ci
 
 ## Contributing
