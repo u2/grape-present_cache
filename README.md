@@ -30,7 +30,7 @@ module MyApi < Grape::API
     desc "Return a post"
     get ":id" do
       post = Post.find(params[:id])
-      present_cache(key: "api:posts:#{post.id}", expires_in: 2.hours) do
+      present_cache(key: "post-#{post.id}", expires_in: 2.hours) do
         present :post, post, with: API::Entities::Post
       end
       present :meta, Meta.new, with: API::Entities::Meta
@@ -39,9 +39,20 @@ module MyApi < Grape::API
 end
 ```
 
+`Grape::PresentCache` will use the current endpoint path and method as cache key prefix.In this example, the cache key will be `"#{namespace}":"#{route}":posts:#{:id}:get:post-#{post.id}`.
+
+##Configuration
+
+By default `GrapePresentCache` will use an instance of `ActiveSupport::Cache::MemoryStore` in a non-Rails and `Rails.cache` in a Rails environment. You can configure it to use any other cache store.
+
+```ruby
+Grape::PresentCache.configure do |config|
+  config.cache = ActiveSupport::Cache::FileStore.new
+end
+```
+
 ## TODO
 
-- Use Grape::Endpoint as cache_key prefix
 - Support other methods.(eg: expire, delete_matched, update...)
 - Rspec
 

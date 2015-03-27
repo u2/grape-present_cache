@@ -12,7 +12,7 @@ Lint/AssignmentInCondition:
 
 # Offense count: 1
 Metrics/AbcSize:
-  Max: 20
+  Max: 21
 
 # Offense count: 1
 # Configuration parameters: AllowURI, URISchemes.
