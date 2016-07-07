@@ -10,10 +10,10 @@ module Grape
         end
 
         def request_path
-          path = route.route_path[1..-1].gsub('/', ':')
+          path = route.path[1..-1].gsub('/', ':')
           path.sub!(/\(\.:format\)\z/, '')
-          route.route_version && path.sub!(':version', route.route_version)
-          path << ':' << route.route_method.downcase
+          route.version && path.sub!(':version', route.version)
+          path << ':' << route.request_method.downcase
           path
         end
 
@@ -40,7 +40,7 @@ module Grape
             body representation
           else
             # TODO: save_block_result_to_cache
-            Grape::PresentCache.config.cache.fetch(cache_key, expires_in: cache_store_expire_time) do 
+            Grape::PresentCache.config.cache.fetch(cache_key, expires_in: cache_store_expire_time) do
               block.call.to_json
             end
           end
